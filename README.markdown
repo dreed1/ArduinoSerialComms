@@ -8,3 +8,6 @@ Hook up the button on pin #2 and an RGB LED on pins 6,5, and 3 (RGB, respectivel
 
 fill the python scripts 'doSomeMagic()' function with whatever you want done and finally
 run the python sniffer with python SerialSniffer.py 
+
+
+note that you can use 2 way communication the make the light do some cool stuff and let you know how the status of your action is going.
