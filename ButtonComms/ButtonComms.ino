@@ -66,8 +66,8 @@ void recieveSerialInput(){
       analogWrite(bluePin, 0);
     }
     else if(incoming==3){
-      analogWrite(redPin, 255);  
-      analogWrite(greenPin, 167); 
+      analogWrite(redPin, 180);  
+      analogWrite(greenPin, 57); 
       analogWrite(bluePin, 0);
     }
     else if(incoming ==4){
@@ -75,7 +75,7 @@ void recieveSerialInput(){
       analogWrite(redPin, 0);  
       analogWrite(greenPin, 255); 
       analogWrite(bluePin, 0);
-      delay(5000); 
+      delay(2000); 
       for(int i=0;i<25;i++){
         analogWrite(redPin, 0);  
         analogWrite(greenPin, 255); 
