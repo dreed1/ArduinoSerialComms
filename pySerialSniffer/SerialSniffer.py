@@ -6,7 +6,7 @@ from time import sleep
 
 def loop():
 	buttonPressed = ser.read()
-	#uncomment for a debug stream
+	###############uncomment for a debug stream
 	#print buttonPressed
 	if(buttonPressed=='1'):
 		print 'About to do some magic, stand back... this could be dangerous.'
