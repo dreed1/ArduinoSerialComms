@@ -11,10 +11,20 @@ def loop():
 	if(buttonPressed=='1'):
 		print 'About to do some magic, stand back... this could be dangerous.'
 		doSomeMagic()
+	#remove comments to debug the serial stream
+	#elif(buttonPressed != '0'):
+	#	print 'echoing status->' + '#' +buttonPressed +'#'
 
 def doSomeMagic():
 	print 'beginning magic'
-	sleep(5)
+	ser.write('2') #denotes event received
+	sleep(3)
+	print 'uhhhh, we made progress or something'
+	ser.write('3') #denotes progress made
+	sleep(3)
+	print 'work complete!'
+	ser.write('4') #denotes process finished
+	sleep(3)
 	print 'done with the magic'
 
 #this is pretty fragile, set it to whatever comms port your 'duino is hooked up to until I find a better solution

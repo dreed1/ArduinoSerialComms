@@ -26,6 +26,9 @@ void loop(){
 
   // check if the pushbutton is pressed.
   // if it is, the buttonState is HIGH:
+  if(Serial.available() > 0){
+    recieveSerialInput();
+  }
   if (buttonState == HIGH) {  
     if(!buttonPressed){
       buttonPressed = true;
@@ -46,8 +49,43 @@ void loop(){
       Serial.print(0);  
     }
     // turn LED off:
-    analogWrite(redPin, 0);  
-    analogWrite(greenPin, 0); 
-    analogWrite(bluePin, 0); 
+  }
+}
+
+void recieveSerialInput(){
+  boolean serialFinished = false;
+  int incoming;
+  int length=10;
+  while(!serialFinished){
+    
+    incoming = Serial.parseInt();
+    Serial.print(incoming);
+    if(incoming==2){
+      analogWrite(redPin, 255);  
+      analogWrite(greenPin, 0); 
+      analogWrite(bluePin, 0);
+    }
+    else if(incoming==3){
+      analogWrite(redPin, 255);  
+      analogWrite(greenPin, 167); 
+      analogWrite(bluePin, 0);
+    }
+    else if(incoming ==4){
+      serialFinished = true;
+      analogWrite(redPin, 0);  
+      analogWrite(greenPin, 255); 
+      analogWrite(bluePin, 0);
+      delay(5000); 
+      for(int i=0;i<25;i++){
+        analogWrite(redPin, 0);  
+        analogWrite(greenPin, 255); 
+        analogWrite(bluePin, 0);
+        delay(100);
+        analogWrite(redPin, 0);  
+        analogWrite(greenPin, 0); 
+        analogWrite(bluePin, 0);
+        delay(100);
+      }
+    }
   }
 }
